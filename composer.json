@@ -1,0 +1,20 @@
+{
+    "name": "karolis/obiektinis-bankas",
+    "description": "Puikus objektinis bankas",
+    "type": "no",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Objectinis\\Bankas\\": "app/",
+            "Objectinis\\Bankas\\Controller\\": "app/controller/",
+            "App\\DB\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "junusi",
+            "email": "82803045+junusi@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
