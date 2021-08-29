@@ -28,24 +28,50 @@ class Json implements DataBase {
     }
 
 
-    function create(array $uztvankaData) : void
+    function create(array $saskaitaData) : void
     {
-        $this->data[] = $uztvankaData;
+        $this->data[] = $saskaitaData;
     }
  
-    function update(int $uztvankaId, array $uztvankaData) : void
+    function update(int $saskaitaId, array $saskaitaData) : void
     {
-        
+        foreach ($this->data as  $key => $saskaita) {
+            if ($saskaita['id'] == $saskaitaId) {
+                $this->data[$key] = $saskaitaData;
+            }
+           }
+    }
+  
+  function updates(int $saskaitaId, array $saskaitaData) : void
+    {
+        foreach ($this->data as  $key => $saskaita) {
+            if ($saskaita['id'] == $saskaitaId) {
+                $this->data[$key] = $saskaitaData;
+            }
+           }
     }
  
-    function delete(int $uztvankaId) : void
+ 
+    function delete(int $saskaitaId) : void
     {
-        
+        foreach ($this->data as  $key => $saskaita) {
+            if ($saskaita['id'] == $saskaitaId && $saskaita['lesas'] == 0) {
+                unset ($this->data[$key]);
+               App::addMessage('succsess', 'Saskaita uždaryta'); 
+            }else{
+                App::addMessage('succsess', 'Sąskaita negali būti uždaryta ,joje yra lėšų');  
+            }
+           }
     }
  
-    function show(int $uztvankaId) : array
+    function show(int $saskaitaId) : array
     {
-        
+        foreach ($this->data as $saskaita) {
+         if ($saskaita['id'] == $saskaitaId) {
+           return $saskaita;
+         }
+       }
+       return [];
     }
     
     function showAll() : array

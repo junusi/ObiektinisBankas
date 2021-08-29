@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Bebrų Užtvanka</title>
+    <title>BANKAS</title>
     <style>
-    label {
+     label {
         display: inline-block;
         width: 140px;
     }
@@ -27,10 +27,10 @@
     nav a.btn:hover {
         color: black;
     }
-    .uztvanka {
+    .saskaita {
         border: 2px solid black;
     }
-    .uztvanka h1 {
+    .saskaita h1 {
         margin: 5px 5px 5px 0;
         padding: 7px 7px 7px 0;
         font-size: 22px;
@@ -56,12 +56,12 @@
     .logout-form button:hover {
         color: black;
     }
-    .form-bebrai {
+    .form-saskaita {
         display: flex;
         justify-content: flex-start;
         align-items: center;
     }
-    .form-bebrai button {
+    .form-saskaita button {
         margin-left: 4px;
         min-width: 38px;
         text-align: center;
@@ -74,11 +74,15 @@
 
 <body>
 <nav>
-    <a class="btn btn-link" href="<?= URL ?>">Pradžia</a>
-    <a class="btn btn-link" href="<?= URL ?>create">Nauja Saskaita</a>
+<a class="btn btn-link" href="<?= URL ?>">Pradžia</a>
+    <?php if (isLogged()) : ?>
     <a class="btn btn-link" href="<?= URL ?>list">Sąrašas</a>
-
+    <a class="btn btn-link" href="<?= URL ?>create">Nauja Saskaita</a>
+    <form class="logout-form" action="<?= URL ?>logout" method="post">
+    <button type="submit" class="btn btn-link">Atsijungti <b><?= $_SESSION['name'] ?></b></button>
+    </form>
+    <?php else : ?>
     <a class="btn btn-link" href="<?= URL ?>login">Prisijungti</a>
-  
+    <?php endif ?>
 </nav>
-
+<?php showMessages();

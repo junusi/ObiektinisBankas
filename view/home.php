@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col-5">
-            <h1>Sveiki atvykę į bebrų užtvanką</h1>
+            <h1>Sveiki atvykę į Banką</h1>
         </div>
     </div>
 </div>

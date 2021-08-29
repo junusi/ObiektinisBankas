@@ -6,6 +6,7 @@
     "autoload": {
         "psr-4": {
             "Objectinis\\Bankas\\": "app/",
+            "Objectinis\\Bankas\\Login\\": "app/login/",
             "Objectinis\\Bankas\\Controller\\": "app/controller/",
             "App\\DB\\": "app/"
         }

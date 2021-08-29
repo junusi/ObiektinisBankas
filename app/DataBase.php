@@ -7,6 +7,9 @@ interface DataBase
  
     function update(int
  $userId, array $userData) : void;
+
+ function updates(int
+ $userId, array $userData) : void;
  
     function delete(int
  $userId) : void;
